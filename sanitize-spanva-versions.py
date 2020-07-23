@@ -2,6 +2,11 @@ import os
 import argparse
 pattern = "'+--------------------------+----------------+-------+----------------+------------------+------------------------+-----+------+------+-------------------------------------+'"
 
+'''
+Get started using 
+
+`python sanitize-spanva-versions.py --help`
+'''
 
 class SanitizePrettyTable():
     def __init__(self, path_of_pretty_table_file, destination_file):
