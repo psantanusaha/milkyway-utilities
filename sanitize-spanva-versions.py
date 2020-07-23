@@ -64,18 +64,6 @@ class SanitizePrettyTable():
             yield data
 
 
-def get_groups(seq, group_by):
-    data = []
-    for line in seq:
-        if line.startswith(group_by):
-            if data:
-                yield data
-                data = []
-        data.append(line)
-
-    if data:
-        yield data
-
 
 def main():
     parser = argparse.ArgumentParser(description='Convert PrettTable of SpanVa to CSV')
