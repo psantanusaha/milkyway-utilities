@@ -1,12 +1,7 @@
 import os
 import argparse
 pattern = "'+--------------------------+----------------+-------+----------------+------------------+------------------------+-----+------+------+-------------------------------------+'"
-
-'''
-Get started using 
-
-`python sanitize-spanva-versions.py --help`
-'''
+csv_header="SpanVaId,Name,IpAddress,Version,AvailableUpdateVersion,CPU,Disk,Mem,CreatedBy"
 
 class SanitizePrettyTable():
     def __init__(self, path_of_pretty_table_file, destination_file):
@@ -43,6 +38,7 @@ class SanitizePrettyTable():
     def read_grouped_and_write_csv(self):
         with open("intermediate_file.txt", "r") as fpr:
             with open(self.destination_file_path, "a") as fpw:
+                fpw.write(csv_header)
                 for i, group in enumerate(self.__get_groups(fpr, "TENANT:"), start=1):
                     tenant = group[0].strip().replace("TENANT:", "")
                     for index in range(1, len(group)):
@@ -62,7 +58,6 @@ class SanitizePrettyTable():
 
         if data:
             yield data
-
 
 
 def main():
