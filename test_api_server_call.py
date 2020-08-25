@@ -19,14 +19,6 @@ from commons import prepare_rotating_file_logger
 
 from logs_uploader import api_get_auth_headers
 
-# set the logger class to our custom class
-logging.setLoggerClass(AgentLogger)
-
-#setup logger for config manager.
-logger = logging.getLogger('spanva_diagnostic')
-prepare_rotating_file_logger(logger, None, "/var/log/elastica/spanva_diagnostic.log", logging.DEBUG)
-
-
 def do_signed_request(key_id, key_secret, host_url, method, resource_path, content_type, content=None):
     """
     only GET, POST and PUT support currently
