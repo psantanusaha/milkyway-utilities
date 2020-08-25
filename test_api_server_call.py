@@ -1,5 +1,3 @@
-from redis_util import get_global_parameters, RedisConnectionFailure, set_key_value
-from spanva_logger import AgentLogger
 import logging
 import magic
 import json
@@ -10,14 +8,9 @@ import datetime
 import base64
 import hmac
 import hashlib
-
 import md5
-
 import urllib
 
-from commons import prepare_rotating_file_logger
-
-from logs_uploader import api_get_auth_headers
 
 def do_signed_request(key_id, key_secret, host_url, method, resource_path, content_type, content=None):
     """
