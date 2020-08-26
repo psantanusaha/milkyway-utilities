@@ -2,11 +2,6 @@
 import os
 import subprocess
 
-
-def main():
-    print (sorted(file in os.listdir("/opt/agent/data/ad_sync/"),key=os.path.getmtime))
-
-
 def query():
     """
     Override base class` query() method only to change the last line
